@@ -34,9 +34,9 @@ namespace ProjectNavi.Localization
         {
             var tmp = new double[] { dx, dtheta };
             Vector<double> control = new DenseVector(tmp);
-            var noise = new double[,] { {0.1, 0, 0},
-                                        {0, 0.1, 0},
-                                        {0, 0, 0.2}};
+            var noise = new double[,] { {0.1, 0, 0},    // x: 0.1m = 10 cm
+                                        {0, 0.1, 0},    // y: 0.1m = 10 cm
+                                        {0, 0, 0.2}};   // theta: 0.2 radian
             kalman.Predict(control, StateTransitionFunc, StateTransitionJacobianFunc, DenseMatrix.OfArray(noise));
         }
     }
